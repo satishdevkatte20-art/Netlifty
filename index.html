@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A Surprise For You ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  font-family:Arial;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+h1{
+  font-size:40px;
+}
+
+button{
+  padding:12px 25px;
+  font-size:20px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4d6d;
+  cursor:pointer;
+}
+
+#loveMessage{
+  display:none;
+  font-size:24px;
+  margin-top:20px;
+}
+
+.heart{
+  position:absolute;
+  color:white;
+  font-size:20px;
+  animation:float 5s linear infinite;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(100vh);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-10vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hey Beautiful ❤️</h1>
+<p>I made a little surprise for you</p>
+
+<button onclick="showLove()">Open Surprise</button>
+
+<div id="loveMessage">
+You make my days brighter 🌸  
+I'm really lucky to know you 💖
+</div>
+
+<script>
+function showLove(){
+ document.getElementById("loveMessage").style.display="block";
+}
+
+function createHeart(){
+ const heart=document.createElement("div");
+ heart.className="heart";
+ heart.innerHTML="❤️";
+ heart.style.left=Math.random()*100+"vw";
+ heart.style.fontSize=(10+Math.random()*30)+"px";
+ document.body.appendChild(heart);
+
+ setTimeout(()=>heart.remove(),5000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
